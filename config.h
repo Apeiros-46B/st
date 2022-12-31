@@ -26,7 +26,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
-static float chscale = 1.0;
+static float chscale = 0.9;
 
 /*
  * word delimiter string
@@ -85,7 +85,7 @@ const int boxdraw = 1;
 const int boxdraw_bold = 0;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 0;
+const int boxdraw_braille = 1;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -118,7 +118,7 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  "#384348", /* hard contrast: #1d2021 / soft contrast: #32302f */
+  "#3a454a", /* hard contrast: #1d2021 / soft contrast: #32302f */
   "#e67e80",
   "#a7c080",
   "#dbbc7f",
@@ -126,7 +126,7 @@ static const char *colorname[] = {
   "#d699b6",
   "#83c092",
   "#d3c6aa",
-  "#607279",
+  "#859289",
   "#e67e80",
   "#a7c080",
   "#dbbc7f",
@@ -136,7 +136,7 @@ static const char *colorname[] = {
   "#d3c6aa",
   [255] = 0,
   /* more colors can be added after 255 to use with DefaultXX */
-  "#607279", /* 256 -> cursor */
+  "#859289", /* 256 -> cursor */
   "#e69875", /* 257 -> rev cursor*/
   "#2b3339", /* 258 -> bg */
   "#d3c6aa", /* 259 -> fg */
@@ -178,7 +178,7 @@ static unsigned int rows = 24;
  * Default colour and shape of the mouse cursor
  */
 static unsigned int mouseshape = XC_left_ptr;
-static unsigned int mousefg = 7;
+static unsigned int mousefg = 256;
 static unsigned int mousebg = 0;
 
 /*

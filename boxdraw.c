@@ -133,7 +133,7 @@ drawboxlines(int x, int y, int w, int h, XftColor *fg, ushort bd)
 	int mwh = MIN(w, h);
 	int base_s = MAX(1, DIV(mwh, 8));
 	int bold = (bd & BDB) && mwh >= 6;  /* possibly ignore boldness */
-	int s = bold ? MAX(base_s + 1, DIV(3 * base_s, 2)) : base_s;
+	int s = bold ? MAX(base_s, DIV(3 * base_s, 2)) : base_s + 1;
 	int w2 = DIV(w - s, 2), h2 = DIV(h - s, 2);
 	/* the s-by-s square (x + w2, y + h2, s, s) is the center texel.    */
 	/* The base length (per direction till edge) includes this square.  */
